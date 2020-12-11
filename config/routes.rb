@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'comments/create'
+  get 'comments/new'
+  get 'comments/index'
+  get 'comments/show'
   get 'relationships/create'
   get 'relationships/destroy'
   root 'tweets#index'
