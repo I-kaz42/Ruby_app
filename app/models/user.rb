@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   has_many :tweets
   has_many :favorites
+  has_many :comments
   has_many :favorite_tweets, through: :favorites, source: :tweet
 
   # ====================自分がフォローしているユーザーとの関連 ===================================
