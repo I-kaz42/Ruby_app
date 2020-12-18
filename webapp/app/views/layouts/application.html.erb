@@ -1,25 +1,66 @@
 <!DOCTYPE html>
 <html>
   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AssociationTutorial</title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Webapp" %>">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <body style="background:#eeeeee;">
+  <div class="container" >
+    <div class="bg-white text-dark">
+    <div class="border border-dark" style="padding:10px;">
+    <div class="container" >
+    
 
+    <nav class="navbar navbar-expand-md  navbar-light bg-light">
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#bs-navi" aria-controls="bs-navi" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <body>
+    <div class="collapse navbar-collapse" id="bs-navi">
+    <ul class="navbar-nav">
     <% if user_signed_in? %>
-      <%= link_to "新規投稿", new_tweet_path %>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      <%= link_to "マイページ", user_path(current_user.id) %>
+    <li class="nav-item">
+      <%= link_to "新規投稿", new_tweet_path, {class: "nav-link"} %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "ログアウト", destroy_user_session_path, {method: :delete, class: "nav-link"} %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "マイページ", user_path(current_user.id), {class: "nav-link"} %>
+    </li>
+    
     <% else %>
-      <%= link_to "新規登録", new_user_registration_path %>
-      <%= link_to "ログイン", new_user_session_path %>
+    <li class="nav-item">
+      <%= link_to "新規登録", new_user_registration_path, {class: "nav-link"} %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "ログイン", new_user_session_path, {class: "nav-link"} %>
+    </li>
+    
     <% end %>
-      <%= link_to "ツイート一覧", tweets_path %>
-      <%= link_to "ユーザー一覧", users_path %>
-    <%= yield %>
+    <li class="nav-item">
+      <%= link_to "ツイート一覧", tweets_path, {class: "nav-link"} %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "ユーザー一覧", users_path, {class: "nav-link"} %>
+    </li>
+    </ul>
+    </div>
+    </nav>
+
+      
+    </div>
+    <div class="container">
+      <div class="col">
+        <%= yield %>
+      </div>
+    </div>
+    </div>
+    </div>
+    </div>
+  </body>
 </html>

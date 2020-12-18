@@ -1,3 +1,8 @@
 <h1>Comments#index</h1>
 <p>Find me in app/views/comments/index.html.erb</p>
 
+<% @comment.each do |comment| %>
+  <hr>
+  <p><span>コメント内容: </span><%=link_to comment.body, comment_path(comment.id) %></p>
+<% end %>
+

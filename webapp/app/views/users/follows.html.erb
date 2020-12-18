@@ -1,7 +1,6 @@
 <h1>Users#follows</h1>
 <p>Find me in app/views/users/follows.html.erb</p>
 
-
 <% @users.each do |user| %>
   <hr>
   <p><span>email: </span><%= link_to user.email, user_path(user.id) %></p>

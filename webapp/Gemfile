@@ -53,3 +53,12 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
+# Bootstrap
+gem 'bootstrap', '~>4.0.0'
+gem 'jquery-rails'
+gem 'sprockets-rails', '>= 2.3.2'
+
+# RailsLayout
+group :development do
+  gem 'rails_layout'
+end

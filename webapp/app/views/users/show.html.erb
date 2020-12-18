@@ -3,7 +3,6 @@
 <hr>
 <p><span>email: </span><%= @user.email %></p>
 
-
 <p><%=link_to "フォロー", follows_user_path(@user.id) %></p>
 <p><%=link_to "フォロワー", followers_user_path(@user.id) %></p>
 <% if current_user != @user %>
@@ -14,12 +13,35 @@
     <% end %>
 <% end %>
 
-<% @tweets.each do |tweet| %>
-  <hr>
-  <p><span>ツイート内容: </span><%=link_to tweet.body, tweet_path(tweet.id) %></p>
-<% end %>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a href="#tweet" class="nav-link active" data-toggle="tab">ツイート</a>
+  </li>
+  <li class="nav-item">
+    <a href="#fab" class="nav-link" data-toggle="tab">お気に入り</a>
+  </li>
+</ul>
 
-<% @favorite_tweets.each do |tweet| %>
-  <hr>
-  <p><span>ファボツイート内容: </span><%=link_to tweet.body, tweet_path(tweet.id) %></p>
-<% end %>
+<div class="tab-content">
+    <div id="tweet" class="tab-pane active">
+      <% @tweets.each do |tweet| %>
+        <hr>
+        <p><span>ツイート内容: </span></p>
+        <p><%=link_to tweet.body, tweet_path(tweet.id) %></p>
+      <% end %>
+    </div>
+
+    <div id="fab" class="tab-pane">
+      <% @favorite_tweets.each do |tweet| %>
+        <hr>
+        <p><span>ファボツイート内容: </span></p>
+        <p><%=link_to tweet.body, tweet_path(tweet.id) %></p>
+      <% end %>
+    </div>
+</div>
+
+  
+
+
+
+
